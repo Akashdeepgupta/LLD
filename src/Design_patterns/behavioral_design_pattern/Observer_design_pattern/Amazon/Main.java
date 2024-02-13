@@ -1,4 +1,4 @@
-package Design_patterns.behavioral_design_pattern.Observer_design_pattern;
+package Design_patterns.behavioral_design_pattern.Observer_design_pattern.Amazon;
 
 public class Main {
     public static void main(String[] args) {

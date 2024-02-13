@@ -1,6 +1,8 @@
-package Design_patterns.behavioral_design_pattern.Observer_design_pattern;
+package Design_patterns.behavioral_design_pattern.Observer_design_pattern.Amazon;
 
-public class NotificationService implements OrderPlacedSubscriber{
+import Design_patterns.behavioral_design_pattern.Observer_design_pattern.Amazon.OrderPlacedSubscriber;
+
+public class NotificationService implements OrderPlacedSubscriber {
     @Override
     public void orderPlaceEvent() {
         System.out.println("send sms to user");
