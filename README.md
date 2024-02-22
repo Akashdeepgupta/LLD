@@ -39,4 +39,9 @@ D -> DIP(Dependency Inversion Principle)
 | Builder                   |                    Facade |         Observer          |
 | Factory                   |                 Decorator |                           |
 | Protoype                  |                 Flyweight |                           |
-| Registry                  |                           |                           |           
+| Registry                  |                           |                           |  
+
+
+## 1. Singleton Design Pattern
+
+#### Singleton Design pattern is used when there need of single instance of the object which has to be shared among all the resources.
