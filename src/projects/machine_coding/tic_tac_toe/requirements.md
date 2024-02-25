@@ -14,3 +14,8 @@
 10. we can watch replay of the game.
 11. we cannot pause the game and nobody can leave the game.
 12. players can undo their move.
+
+## tasks:
+#### 1. All TODO.   
+#### 2.undo logic implementation
+#### 3. Replay logic implementation
