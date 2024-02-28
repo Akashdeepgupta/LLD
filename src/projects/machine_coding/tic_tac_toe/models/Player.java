@@ -1,5 +1,8 @@
 package projects.machine_coding.tic_tac_toe.models;
 
+import projects.machine_coding.tic_tac_toe.exception_handling.InvalidCellException;
+import projects.machine_coding.tic_tac_toe.exception_handling.InvalidRowColException;
+
 import java.util.Scanner;
 
 public class Player {
@@ -25,10 +28,21 @@ public class Player {
         System.out.println("Enter the col for target cell");
         int col = sc.nextInt();
         //TODO: validate the row,col->inbound, filled or empty
+        validateMove(board,row,col);
         Cell cell = board.getCells().get(row).get(col);
         cell.setCellState(CellState.FILLED);
         cell.setPlayer(this);
         return new Move(cell,this);
+    }
+
+    public boolean validateMove(Board board,int row, int col){
+        if(board.cells.get(row).get(col).equals(CellState.FILLED)){
+            throw new InvalidCellException("The cell is already filled");
+        }
+        if(row<0 || col > board.dimension){
+            throw new InvalidRowColException("This is an invalid cell, choose the correct row and col");
+        }
+        return true;
     }
 
     public int getId() {

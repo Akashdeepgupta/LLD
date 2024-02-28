@@ -4,6 +4,7 @@ import projects.machine_coding.tic_tac_toe.exception_handling.InvalidBotCountExc
 import projects.machine_coding.tic_tac_toe.exception_handling.InvalidPlayerSizeException;
 import projects.machine_coding.tic_tac_toe.exception_handling.InvalidSymbolException;
 import projects.machine_coding.tic_tac_toe.service.winning_strategy.WinningStrategy;
+import projects.machine_coding.tic_tac_toe.service.winning_strategy.WinningStrategyFactory;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -20,6 +21,78 @@ public class Game {
     private Player winner;
     private GameState gamestate;
     private int numberOfSymbols;
+
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public int getDimension() {
+        return dimension;
+    }
+
+    public void setDimension(int dimension) {
+        this.dimension = dimension;
+    }
+
+    public List<Player> getPlayers() {
+        return players;
+    }
+
+    public void setPlayers(List<Player> players) {
+        this.players = players;
+    }
+
+    public List<Move> getMoves() {
+        return moves;
+    }
+
+    public void setMoves(List<Move> moves) {
+        this.moves = moves;
+    }
+
+    public List<Board> getBoardstates() {
+        return boardstates;
+    }
+
+    public void setBoardstates(List<Board> boardstates) {
+        this.boardstates = boardstates;
+    }
+
+    public WinningStrategy getWinningStrategy() {
+        return winningStrategy;
+    }
+
+    public void setWinningStrategy(WinningStrategy winningStrategy) {
+        this.winningStrategy = winningStrategy;
+    }
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
+    }
+
+    public GameState getGamestate() {
+        return gamestate;
+    }
+
+    public void setGamestate(GameState gamestate) {
+        this.gamestate = gamestate;
+    }
+
+    public int getNumberOfSymbols() {
+        return numberOfSymbols;
+    }
+
+    public void setNumberOfSymbols(int numberOfSymbols) {
+        this.numberOfSymbols = numberOfSymbols;
+    }
 
     private Game(Board board, int dimension, List<Player> players, WinningStrategy winningStrategy, Player winner) {
         this.board = board;
@@ -153,6 +226,12 @@ public class Game {
 
         private void validPlayerSymbol(){
             //TODO: use lambdas and streams to do this
+
+//            long count = players.stream().distinct().count();
+//            if(count != players.size()){
+//                throw new InvalidSymbolException("Every Player should have different symbol");
+//            }
+
             HashSet<Character> hs = new HashSet<>();
             for(Player player : players){
                 hs.add(player.getSymbol());

@@ -17,6 +17,7 @@ public class Board {
 
     public Board(int dimension) {
         this.dimension = dimension;
+        cells = new ArrayList<>();
         for (int i = 0; i < dimension; i++) {
             cells.add(new ArrayList<>());
             for (int j = 0; j < dimension; j++) {
@@ -30,6 +31,7 @@ public class Board {
             for (int j = 0; j < dimension; j++) {
                 cells.get(i).get(j).displayCell();
             }
+            System.out.println();
         }
     }
 

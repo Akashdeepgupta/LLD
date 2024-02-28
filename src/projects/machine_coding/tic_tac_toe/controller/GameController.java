@@ -1,46 +1,47 @@
 package projects.machine_coding.tic_tac_toe.controller;
 
 import projects.machine_coding.tic_tac_toe.models.*;
+import projects.machine_coding.tic_tac_toe.service.bot_playing_strategy.LinearBotPlayingStrategy;
+import projects.machine_coding.tic_tac_toe.service.winning_strategy.OrderOneWinningStrategy;
 import projects.machine_coding.tic_tac_toe.service.winning_strategy.WinningStrategy;
+import projects.machine_coding.tic_tac_toe.service.winning_strategy.WinningStrategyFactory;
+import projects.machine_coding.tic_tac_toe.service.winning_strategy.WinningStrategyName;
 
 import java.util.List;
 
 public class GameController {
 
-    public Game createGame(Board board,int dimension, List<Player> players, WinningStrategy winningStrategy){
+    public Game createGame(int dimension, List<Player> players, WinningStrategyName winningStrategyName){
         return Game.builder().setDimension(dimension)
                 .setPlayers(players)
-                .setWinningStrategy(winningStrategy)
-                .setBoard(board)
+                .setWinningStrategy(WinningStrategyFactory.getWinningStrategy(winningStrategyName,dimension))
                 .build();
     }
 
     public void displayBoard(Game game){
-
+        game.getBoard().displayBoard();
     }
 
     public void getGameState(Game game){
-
+        game.getGamestate();
     }
 
-    public Board makeMove(){
-//        return new Board();
-        return null;
-    }
-    public Player getWinner(Game game){
-        return null;
+    public Move makeMove(Game game,Player player){
+        return player.makeMove(game.getBoard());
     }
 
-    public Move executeMove(Game game,Player player){
-        return null;
+
+
+    public Player checkWinner(Game game, Move lastPlayedmove){
+        return game.getWinningStrategy().checkWinner(game.getBoard(),lastPlayedmove);
     }
 
-    public Player checkWinner(Game game){
+    public Board undo(Game game){
         return null;
     }
 
-    public Board undo(){
-        return null;
+    public void replay(Game game){
+
     }
 
 }

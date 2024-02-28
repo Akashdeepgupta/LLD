@@ -1,5 +1,9 @@
 package projects.machine_coding.tic_tac_toe.models;
 
+import projects.machine_coding.tic_tac_toe.service.bot_playing_strategy.BotPlayingStrategyFactory;
+import projects.machine_coding.tic_tac_toe.service.bot_playing_strategy.BotPlayingStrategyName;
+import projects.machine_coding.tic_tac_toe.service.bot_playing_strategy.LinearBotPlayingStrategy;
+
 public class Bot extends Player {
     BotDifficultyLevel botDifficultyLevel;
 
@@ -8,12 +12,9 @@ public class Bot extends Player {
         this.botDifficultyLevel = botDifficultyLevel;
     }
 
-    public Bot(int id, String name, char symbol, PlayerType playerType) {
-        super(id, name, symbol, playerType);
-    }
 
     @Override
     public Move makeMove(Board board) {
-        return null;
+        return BotPlayingStrategyFactory.getBotPlayingStrategy(BotPlayingStrategyName.LINEARBOTPLAYINGSTRATEGY).makeMove(board,this);
     }
 }
