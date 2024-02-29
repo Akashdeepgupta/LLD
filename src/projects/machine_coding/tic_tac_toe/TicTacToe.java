@@ -77,6 +77,11 @@ public class TicTacToe {
             }
 
         }
+        System.out.println("do you want to see replay in the game: y or n");
+        String replaygame  = sc.next();
+        if(replaygame.equalsIgnoreCase("y")){
+            gameController.replay(game);
+        }
 
     }
 }

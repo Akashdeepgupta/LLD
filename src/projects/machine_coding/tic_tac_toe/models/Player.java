@@ -36,7 +36,7 @@ public class Player {
     }
 
     public boolean validateMove(Board board,int row, int col){
-        if(board.cells.get(row).get(col).equals(CellState.FILLED)){
+        if(board.cells.get(row).get(col).getCellState().equals(CellState.FILLED)){
             throw new InvalidCellException("The cell is already filled");
         }
         if(row<0 || col > board.dimension){

@@ -2,6 +2,7 @@ package projects.machine_coding.tic_tac_toe.controller;
 
 import projects.machine_coding.tic_tac_toe.models.*;
 import projects.machine_coding.tic_tac_toe.service.bot_playing_strategy.LinearBotPlayingStrategy;
+import projects.machine_coding.tic_tac_toe.service.replay.Replay;
 import projects.machine_coding.tic_tac_toe.service.undo.Undo;
 import projects.machine_coding.tic_tac_toe.service.winning_strategy.OrderOneWinningStrategy;
 import projects.machine_coding.tic_tac_toe.service.winning_strategy.WinningStrategy;
@@ -42,7 +43,7 @@ public class GameController {
     }
 
     public void replay(Game game){
-
+        Replay.replayGame(game);
     }
 
 }
