@@ -26,6 +26,17 @@ public class Board {
         }
     }
 
+    public Board (Board board){
+        this.dimension = board.getDimension();
+        this.cells = new ArrayList<>();
+        for (int i = 0; i < dimension; i++) {
+            this.cells.add(new ArrayList<>());
+            for (int j = 0; j < dimension; j++) {
+                this.cells.get(i).add(new Cell(board.cells.get(i).get(j)));
+            }
+        }
+    }
+
     public void displayBoard(){
         for (int i = 0; i < dimension; i++) {
             for (int j = 0; j < dimension; j++) {

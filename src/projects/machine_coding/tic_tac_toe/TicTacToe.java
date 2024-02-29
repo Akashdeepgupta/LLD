@@ -40,13 +40,28 @@ public class TicTacToe {
         Game game = gameController.createGame(3,players, WinningStrategyName.ORDERONEWINNINGSTRATEGY);
         int playerIndex = -1;
         while (game.getGamestate().equals(GameState.IN_PROGRESS)){
-            game.getBoard().displayBoard();
+
             playerIndex++;
             playerIndex = playerIndex %players.size();
             Move playedMove = gameController.makeMove(game,players.get(playerIndex));
+
             //store moves and board states.......
             game.getMoves().add(playedMove);
-            game.getBoardstates().add(game.getBoard());
+            Board temp = new Board(game.getBoard());
+            game.getBoardstates().add(temp);
+            game.getBoard().displayBoard();
+
+            System.out.println("Do you want to Undo Y or N");
+            String undo = sc.next();
+            while(game.getBoardstates().size()>0 && undo.equalsIgnoreCase("Y")){
+                //TODO : implement undo logic
+                game.setBoard(gameController.undo(game));
+                System.out.println("The board after undo is :");
+                game.getBoard().displayBoard();
+                System.out.println("Do you want to Undo Y or N");
+                undo = sc.next();
+            }
+
 
 
             // checking winner
@@ -57,7 +72,7 @@ public class TicTacToe {
                 break;
             }
             //checking for draw
-            if(game.getMoves().size() == game.getBoard().getDimension()*game.getBoard().getDimension()){
+            else if(game.getMoves().size() == game.getBoard().getDimension()*game.getBoard().getDimension()){
                 System.out.println("games is draw");
             }
 

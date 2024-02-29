@@ -2,6 +2,7 @@ package projects.machine_coding.tic_tac_toe.controller;
 
 import projects.machine_coding.tic_tac_toe.models.*;
 import projects.machine_coding.tic_tac_toe.service.bot_playing_strategy.LinearBotPlayingStrategy;
+import projects.machine_coding.tic_tac_toe.service.undo.Undo;
 import projects.machine_coding.tic_tac_toe.service.winning_strategy.OrderOneWinningStrategy;
 import projects.machine_coding.tic_tac_toe.service.winning_strategy.WinningStrategy;
 import projects.machine_coding.tic_tac_toe.service.winning_strategy.WinningStrategyFactory;
@@ -37,7 +38,7 @@ public class GameController {
     }
 
     public Board undo(Game game){
-        return null;
+        return Undo.undo(game);
     }
 
     public void replay(Game game){
