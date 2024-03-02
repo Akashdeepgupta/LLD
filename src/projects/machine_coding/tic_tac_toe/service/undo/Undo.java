@@ -8,6 +8,7 @@ public class Undo {
         int idx = game.getBoardstates().size()-1;
         game.getBoardstates().remove(idx);
         game.getMoves().remove(idx);
+//        game.getWinningStrategy().updateWinner(game.getBoard());
         if(game.getBoardstates().size() >= 1){
             return game.getBoardstates().get(idx-1);
         }else{
