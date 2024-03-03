@@ -22,4 +22,44 @@ public class ParkingFloor extends BaseModel{
         this.entryGate = entryGate;
         this.exitGate = exitGate;
     }
+
+    public int getFloorNumber() {
+        return floorNumber;
+    }
+
+    public void setFloorNumber(int floorNumber) {
+        this.floorNumber = floorNumber;
+    }
+
+    public List<ParkingSpot> getParkingSpots() {
+        return parkingSpots;
+    }
+
+    public void setParkingSpots(List<ParkingSpot> parkingSpots) {
+        this.parkingSpots = parkingSpots;
+    }
+
+    public ParkingFloorStatus getParkingFloorStatus() {
+        return parkingFloorStatus;
+    }
+
+    public void setParkingFloorStatus(ParkingFloorStatus parkingFloorStatus) {
+        this.parkingFloorStatus = parkingFloorStatus;
+    }
+
+    public Gate getEntryGate() {
+        return entryGate;
+    }
+
+    public void setEntryGate(Gate entryGate) {
+        this.entryGate = entryGate;
+    }
+
+    public Gate getExitGate() {
+        return exitGate;
+    }
+
+    public void setExitGate(Gate exitGate) {
+        this.exitGate = exitGate;
+    }
 }
