@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 // assume this like it's a Gate storing table <GateId,Gate>
 public class GateRepository {
-    HashMap<Integer, Gate> gateMap;
+    public static HashMap<Integer, Gate> gateMap;
 
     public GateRepository() {
         this.gateMap = new HashMap<>();

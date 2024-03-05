@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 // assume this like it's a ParkingSpot storing table <ParkingSpotId,ParkingSpot>
 public class ParkingSpotRepository {
-    HashMap<Integer, ParkingSpot> ParkingSpotMap;
+   public static HashMap<Integer, ParkingSpot> ParkingSpotMap;
 
     public ParkingSpotRepository() {
         this.ParkingSpotMap = new HashMap<>();
